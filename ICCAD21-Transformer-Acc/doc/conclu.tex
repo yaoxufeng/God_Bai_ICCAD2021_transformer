@@ -1,0 +1,15 @@
+
+\section{Conclusions}
+Existing deep learning compilers do optimization on computation graph-level by greedy methods designed by human experts, which are strictly execution performance 
+increasing. This apporch misses potential performance gains from more effective operators fusion strategies.
+This work tackles the problem from two aspects. First, we introduce a novel dynamic programming algorithm to explore and optimize fusion strategies. 
+Together with operator fusion optimizations, we propose new sketch generation rules and a search policy for the batch matrix multiplication and softmax operators in 
+transformer subgraphs, which are capable of fusing them into large computation units, then mapping and transforming them into 
+efficient CUDA kernels. In order to get a high-performance and end-to-end compilation flow, a learned cost model is used to fine-tune the performance of each kernel 
+in the code generation stage. Experiments results on three real-world image recognization tasks with transformers are encouraging. Overall, AutoGTCO can reach up to
+1.27x execution performance speedups compared to the current state-of-the-art deep learning library TensorRT.
+  
+
+\label{sec:conclu}
+
+

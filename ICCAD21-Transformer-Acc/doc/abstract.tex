@@ -1,0 +1,15 @@
+
+\begin{abstract}  
+
+Performance optimization is the art of continuous seeking an effective mapping between algorithm and hardware. Existing deep learning compilers or frameworks optimize
+the computation graph by adapting transformations manually designed by high-performance computing engineer efforts. This method misses some possible graph-level optimizations,
+and it is difficult to generalize to emerging deep learning models or new operators. 
+In this work, we propose AutoGTCO, a tensor program generation system for image recognization with transformer architectures on GPU. Compared with existing fusion strategies,
+AutoGTCO explores optimization of operator fusion in transformer model through a novel dynamic programming algorithm. In order to construct an effective search space of the sampled programs, new sketch generation rules and a search policy are proposed for the batch matrix 
+multiplication and softmax operators in each subgraph, which are capable of fusing them into large computation units, then mapping and transforming them into 
+efficient CUDA kernels. Overall, our evaluation on three real-world image recognization tasks shows that AutoGTCO improves the end-to-end execution performance of transformer model relative to 
+the state-of-the-art deep learning library TensorRT on NVIDIA GPU by up to 1.27x.
+  
+
+\end{abstract}
+

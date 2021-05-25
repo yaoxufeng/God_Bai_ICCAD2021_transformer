@@ -1,0 +1,36 @@
+
+\section{Introduction}
+
+Recent years have witnessed a surge of industry scale applications of machine learning models, ranging from autonomous driving, augmented 
+reality, language translation, to billion scale search and recommendation systems. Such workloads can be expressed as a directed acyclic 
+computational graph (DAG) by high level Python APIs, in which nodes verbalize the operators and edges represent the relationship between
+adjacent operators. These computational graphs are mapped to hardware accelerators (such as GPUs) through existing deep learning frameworks
+(such as TensorFlow, PyTorch, Caffe) by vendor-provided kernel libraries (such as cuDNN, MKL-DNN, ARM-Compute Library) to achieve high
+performance. These kernel libraires need significant engineering effort to manually tune for different operators on a diversity
+of hardware platforms. \\
+
+Currently, dense tensor computations (such as matrix multiplication, convolution) are ubiquitous in deep learing workloads. Thus researchers
+and engineers either focus on optimizing performance of such compute intensive primitives, or turning to search-based compilation by decoupling the kernel definitation and computation scheduling for automated generation of tensor programs. This approach performs well for workloads which 
+are dominated by FLOPs. Take NVIDIA TensorRT as example, it uses two steps to optimize the computational graph which is built with deep learning 
+frameworks. In the first step, some operators are fused vertically by the specific rules designed by the high-performance computing engineers. In the second step, the fused operators in the same level are fused horizontally. Existingdeep learning systems such as TensorFlow, PyTorch, and
+TVM optimize an input computation graph by performing greedy rule-based substitutions on the graph. Each substitution
+replaces a subgraph matching a specific pattern with a new subgraph that computes the same result. For example, operator fusion combines several operators into one, which can eliminate intermediate results and increases the granularity of the operators, thereby reducing system overheads such as memory accesses and kernel launches. However, the challenge is how to transform high level computation graphs into efficient kernels in
+order to maximize the execution efficiency on deep learning accelerators. \\
+
+
+To address this challenge, we introduce xxx, an operator fusion strategy that accelerates Transformer model inference by exploring the opportunities of combination automatically between adjacent operators. In our experiments, we find that different operator fusion strategy share
+common sub-schedules. Therefore, we model this process as a multi-stage decision problem and adopt dynamic programming technique to search the 
+optimal operator fusion strategy with a low computation cost. We evaluate our method on xxx a
+
+In summary, this paper makes the following contributions:
+\begin{itemize}
+  \item We introduce a novel dynamic programming algorithm to solve the operator fusion problem for transformer models. This technique can automatically generate the optimal combination for operators in the subgraph-level, which explores a large combination space than the rule-based method defined by high-performance computing engineers in the deep learning compiler.
+  \item Based on Ansor, we propose new sketch generation rules and a search policy for the batch matrix multiplication and softmax operators in subgraphs. This mechanism constructs an effective search space of tensor programs for the kernel generation. In order to get a high-performance and end-to-end compilation flow, a learned cost model is used to fine-tune the performance of each kernel.
+  \item We apply our method to currently popular image recognition tasks with transformer models (such as DETR, SETR, ViT). Our method can automatically generate corresponding CUDA code on GPU under different inference configurations.
+  The optimized CUDA code consistently outperform the state-of-the-art deep learning library TensorRT with xxx measured speedup in the 
+  inference stage.
+\end{itemize}
+
+\label{sec:intro}
+
+

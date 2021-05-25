@@ -1,0 +1,72 @@
+\documentclass[10pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts % show footnote comments
+\input{ieee-normal}
+\usepackage{graphics}
+\graphicspath{{./figs/}}
+
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{patterns}
+
+% pseudocode 
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{setspace}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
+
+
+% ==== Local defined colors
+\definecolor{mypink}{RGB}{255,171,164}     %FFABA4
+\definecolor{mygray}{RGB}{240,240,240}     %F0F0F0\subsubsection{} \\
+
+\definecolor{lightblue}{RGB}{221,239,250}  %DDEFFA
+\definecolor{myred}{RGB}{228,46,36}        %E42E24
+\definecolor{mygreen}{RGB}{142,202,206}    %8ECACE
+\definecolor{myyellow}{RGB}{255,253,181}   %FFFDB5
+\definecolor{myblue}{RGB}{71,162,241}      %47A2F1
+
+\definecolor{myorange}{RGB}{244,106,18}
+\definecolor{mylight}{RGB}{191,191,255}
+
+\begin{document}
+
+\title{
+    % AutoGTCO: Graph and Tensor Co-Optimize for Image Recognition with Transformers on GPU
+    AutoGTCO: Design and Generation of Efficient Tensor Programs for Image Recognition with Transformers on GPU
+}
+
+\iffalse
+\author{
+    Yang Bai$^1$, \quad
+    Bei Yu$^1$ \\
+    $^1$The Chinese University of Hong Kong \qquad
+    %$^2$Hisilicon Technologies Co.\\
+    {\tt\small \{ybai,byu\}@cse.cuhk.edu.hk}
+}
+\fi
+
+
+\maketitle
+
+\input{doc/abstract}
+\input{doc/intro}
+\input{doc/bkg}
+\input{doc/form}
+\input{doc/algo}
+\input{doc/result}
+\input{doc/related}
+\input{doc/conclu}
+
+
+%\balance
+{
+\bibliographystyle{IEEEtran}
+\bibliography{./ref/Top-sim,./ref/addition}
+}
+
+
+\end{document}
+
+
+
